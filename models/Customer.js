@@ -2,16 +2,11 @@ const { Schema, model } = require('mongoose')
 const Joi = require('joi')
 
 const schema = new Schema({
-    name: { type: String, required: true, minlength: 5, maxlength: 100 },
+    name: { type: String, required: true, maxlength: 100 },
     mobile: { type: String },
     home: { type: String },
-    address: {
-        type: new Schema({
-            _id: false,
-            country: { type: String },
-            city: { type: String },
-        })
-    }
+    country: { type: String },
+    city: { type: String },
 })
 
 const Customer = model('Customer', schema)

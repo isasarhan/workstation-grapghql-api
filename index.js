@@ -1,7 +1,8 @@
 const { ApolloServer } = require("apollo-server");
+///schemas
 const schema = require('./schemas/schema') 
 const mutations = require('./schemas/mutations') 
-
+///resolvers
 const Query = require('./resolvers/query')
 const Mutation = require('./resolvers/Mutation')
 const Customer = require('./resolvers/Customer')
@@ -25,7 +26,9 @@ const server = new ApolloServer({
         Customer
     }
 })
+
 const port = process.env.PORT || 3000;
+
 async function startApolloServer(server) {
     const {url} = await server.listen({port:port})
     console.log(`Server started at ${url}...`);

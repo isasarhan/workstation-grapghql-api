@@ -54,6 +54,5 @@ module.exports = Query = {
         const result = await Payment.find()
         return result
     }
-    // customer: () => { return "Customers" },
-    // addCustomer: (parent, args, context) => { console.log("HI");  }
+  
 }

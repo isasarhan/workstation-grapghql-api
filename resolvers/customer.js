@@ -1,8 +1,10 @@
-const { Customer } = require('../models/Customer')
-module.exports = Mutation = {
-    addCustomer: (parent, { input }, context) => {
-        let customer = new Customer(input)
-        customer.save()
-        return customer
+const { Balance } = require('../models/Balance')
+
+module.exports = Customer = {
+    balance: async ({ id: customerId }, args, context) => {
+        const balance = await Balance.findOne({
+            customerid: customerId
+        })
+        return balance
     }
 }

@@ -24,6 +24,7 @@ module.exports = typeDefs = gql`
         home:String!
         country: String
         city:String
+        balance:Balance
     }
 
     type Balance{

@@ -1,4 +1,4 @@
-const { Balance } = require('../models/Balance')
+const { Balance } = require('../models/Balance.js')
 
 module.exports = Customer = {
     balance: async ({ id: customerId }, args, context) => {

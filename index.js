@@ -1,11 +1,11 @@
 const { ApolloServer } = require("apollo-server");
 ///schemas
-const schema = require('./schemas/schema') 
-const mutations = require('./schemas/mutations') 
+const schema = require('./schemas/schema.js') 
+const mutations = require('./schemas/mutations.js') 
 ///resolvers
-const Query = require('./resolvers/query')
-const Mutation = require('./resolvers/Mutation')
-const Customer = require('./resolvers/Customer')
+const Query = require('./resolvers/query.js')
+const Mutation = require('./resolvers/Mutation.js')
+const Customer = require('./resolvers/Customer.js')
 
 const express = require('express')
 const cors = require('cors')

@@ -26,6 +26,8 @@ const server = new ApolloServer({
     }
 })
 const port = process.env.PORT || 3000;
-server.listen(port).then(({ url }) => {
-    console.log("Server is up at " + url);
-});
+async function startApolloServer(server) {
+    const {url} = await server.listen({port:port})
+    console.log(`Server started at ${url}...`);
+}
+startApolloServer(server);

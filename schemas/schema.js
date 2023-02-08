@@ -20,8 +20,8 @@ module.exports = typeDefs = gql`
     type Customer{
         id:ID!
         name:String!
-        mobile:String!
-        home:String!
+        mobile:String
+        home:String
         country: String
         city:String
         balance:Balance

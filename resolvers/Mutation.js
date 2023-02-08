@@ -5,7 +5,7 @@ const { Balance } = require('../models/Balance')
 const { Order } = require('../models/Order')
 const { Attendence } = require('../models/Attendencelog')
 
-module.exports = Mutation = {
+module.exports = Mutation = { 
     /// Customer Mutations
     addCustomer: (parent, { input }, context) => {
         let customer = new Customer(input)

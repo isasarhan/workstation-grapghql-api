@@ -5,8 +5,8 @@ const mutations = require('./schemas/mutations.js')
 ///resolvers
 const Query = require('./resolvers/query.js')
 const Mutation = require('./resolvers/Mutation.js')
-const Customer = require('./resolvers/Customer.js')
-const Balance = require('./resolvers/Balance')
+// const Customer = require('./resolvers/Customer.js')
+// const Balance = require('./resolvers/Balance')
 
 const express = require('express')
 const cors = require('cors')
@@ -24,8 +24,8 @@ const server = new ApolloServer({
     resolvers: {
         Query,
         Mutation,
-        Customer,
-        Balance
+        // Customer,
+        // Balance
     }
 })
 

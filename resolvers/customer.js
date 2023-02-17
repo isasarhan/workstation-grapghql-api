@@ -1,6 +1,6 @@
 const { Balance } = require('../models/Balance.js')
 
-exports = {
+module.exports = {
     balance: async ({ id: customerId }, args, context) => {
         const balance = await Balance.findOne({
             customerid: customerId

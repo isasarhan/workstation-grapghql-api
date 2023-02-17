@@ -6,6 +6,7 @@ module.exports = Customer = {
         const balance = await Balance.findOne({
             customerid: customerId
         })
+        console.log(rest);
         return balance
     }
 } 

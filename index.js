@@ -5,8 +5,8 @@ const mutations = require('./schemas/mutations.js')
 ///resolvers
 const Query = require('./resolvers/query.js')
 const Mutation = require('./resolvers/Mutation.js')
-// const Customer = require('./resolvers/Customer.js')
-// const Balance = require('./resolvers/Balance')
+const Customer = require('./resolvers/Customer.js')
+const Balance = require('./resolvers/Balance')
 
 const express = require('express')
 const cors = require('cors')
@@ -18,15 +18,15 @@ require('dotenv').config()
 require("./start/db")()
 require('./start/validation')()
  
-
+const resolvers = {
+    Query,
+    Mutation,
+    Customer,
+    Balance
+}
 const server = new ApolloServer({
     typeDefs:[schema, mutations],
-    resolvers: {
-        Query,
-        Mutation,
-        // Customer,
-        // Balance
-    }
+    resolvers
 })
 
 const port = process.env.PORT || 3000;

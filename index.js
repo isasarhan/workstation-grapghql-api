@@ -8,6 +8,7 @@ const Mutation = require('./resolvers/Mutation.js')
 // const Customer = require('./resolvers/Customer')
 // const Balance = require('./resolvers/Balance')
 const { Balance } = require('../models/Balance.js')
+const { Customer } = require('../models/Customer')
 
 const express = require('express')
 const cors = require('cors')
@@ -30,7 +31,16 @@ const resolvers = {
             console.log(rest);
             return balance
         }
-    }}
+    },
+    Balance:{
+        customer: async ({customerid}, args, context) => {
+            const customer = await Customer.findById(customerid)
+            console.log(customer);
+            console.log(customerid);
+            return customer
+        }
+    }
+}
 const server = new ApolloServer({
     typeDefs:[schema, mutations],
     resolvers

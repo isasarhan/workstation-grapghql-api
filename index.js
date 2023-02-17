@@ -35,5 +35,5 @@ async function startApolloServer(server) {
     const {url} = await server.listen({port:port})
     console.log(`Server started at ${url}...`);
 }
-// startApolloServer(server);
-server.listen().then((url) => {console.log(url)})
+startApolloServer(server);
+// server.listen().then((url) => {console.log(url)})

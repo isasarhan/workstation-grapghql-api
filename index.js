@@ -5,7 +5,7 @@ const mutations = require('./schemas/mutations.js')
 ///resolvers
 const Query = require('./resolvers/query.js')
 const Mutation = require('./resolvers/Mutation.js')
-const Customer = require('./resolvers/Customer')
+const CustomerResolver = require('./resolvers/Customer')
 // const Balance = require('./resolvers/Balance')
 // const { Balance } = require('./models/Balance.js')
 // const { Customer } = require('./models/Customer')
@@ -22,7 +22,9 @@ require('./start/validation')()
 const resolvers = {
     Query,
     Mutation,
-    Customer
+    Customer:{
+        ...CustomerResolver
+    }
     // Balance:{
     //     customer: async ({customerid}, args, context) => {
         //         const customer = await Customer.findById(customerid)

@@ -5,8 +5,8 @@ const mutations = require('./schemas/mutations.js')
 ///resolvers
 const Query = require('./resolvers/query.js')
 const Mutation = require('./resolvers/Mutation.js')
-const Customer = require('./resolvers/Customer')
-const Balance = require('./resolvers/Balance')
+// const Customer = require('./resolvers/Customer')
+// const Balance = require('./resolvers/Balance')
 
 const express = require('express')
 const cors = require('cors')
@@ -21,9 +21,15 @@ require('./start/validation')()
 const resolvers = {
     Query,
     Mutation,
-    Customer,
-    Balance
-}
+    Customer:{
+        balance: async ({ id: customerId }, args, context) => {
+            const balance = await Balance.findOne({
+                customerid: customerId
+            })
+            console.log(rest);
+            return balance
+        }
+    }}
 const server = new ApolloServer({
     typeDefs:[schema, mutations],
     resolvers

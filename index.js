@@ -5,10 +5,10 @@ const mutations = require('./schemas/mutations.js')
 ///resolvers
 const Query = require('./resolvers/query.js')
 const Mutation = require('./resolvers/Mutation.js')
-const CustomerResolver = require('./resolvers/Customer')
+// const Customer = require('./resolvers/Customer')
 // const Balance = require('./resolvers/Balance')
-// const { Balance } = require('./models/Balance.js')
-// const { Customer } = require('./models/Customer')
+const { Balance } = require('./models/Balance.js')
+const { Customer } = require('./models/Customer')
 
 const express = require('express')
 const cors = require('cors')
@@ -19,20 +19,27 @@ app.use(cors())
 require('dotenv').config()
 require("./start/db")()
 require('./start/validation')()
+ 
 const resolvers = {
     Query,
     Mutation,
     Customer:{
-        ...CustomerResolver
+        balance: async ({ id: customerId }, args, context) => {
+            const balance = await Balance.findOne({
+                customerid: customerId
+            })
+            console.log(rest);
+            return balance
+        }
+    },
+    Balance:{
+        customer: async ({customerid}, args, context) => {
+            const customer = await Customer.findById(customerid)
+            console.log(customer);
+            console.log(customerid);
+            return customer
+        }
     }
-    // Balance:{
-    //     customer: async ({customerid}, args, context) => {
-        //         const customer = await Customer.findById(customerid)
-        //         console.log(customer);
-        //         console.log(customerid);
-    //         return customer
-    //     }
-    // }
 }
 const server = new ApolloServer({
     typeDefs:[schema, mutations],

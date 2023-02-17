@@ -7,6 +7,7 @@ const Query = require('./resolvers/query.js')
 const Mutation = require('./resolvers/Mutation.js')
 // const Customer = require('./resolvers/Customer')
 // const Balance = require('./resolvers/Balance')
+const { Balance } = require('../models/Balance.js')
 
 const express = require('express')
 const cors = require('cors')
